@@ -1,0 +1,18 @@
+body {
+    background-color: cadetblue;
+}
+li{
+    list-style: none;  
+}
+body>ul>li>a{
+    color: white;
+    text-decoration: none;
+}
+section {
+    background-color: brown;
+}
+div {
+    background-color: blueviolet;
+    display: flex;
+    flex-flow: column;
+}

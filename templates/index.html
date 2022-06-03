@@ -1,73 +1,40 @@
 {% extends "main.html" %}
+
 {% block content %}
-    <form action="/events" method="post">
-        <ul>
-            <li>
-                <label for="name">Event Name</label>
-            </li>
-            <li>    
-                <input type="text" name="name" id="name">
-            </li>
-            <li>
-                <label for="date">Event Date</label>
-            </li>
-            <li>    
-                <input type="date" id="date" name="date">
-            </li>
-            <li>
-                <label for="location">Event Location</label>
-            </li>
-            <li>    
-                <input type="text" name="location" id="location">
-            </li>
-            <li>
-                <label for="guests">Number of Guests</label>
-            </li>
-            <li>    
-                <input type="number" name="guests" id="guests">
-            </li>
-            </li>
-            <label for="description">Event description</label>
-            <li>
-                <textarea name="description" id="description" cols="30" rows="3"></textarea>
-            </li>
-            <li>
-                <label for="recurring">Recurring?</label>
-            </li>
-            <li>
-            <input type="checkbox" name="recurring" id="recurring">
-            </li>
-            <li>
-            <input type="submit" value="Add Event">
-            </li>
-        </ul>
+<h1>Events:</h1>
+<form class="form-inline" action="/events" method="post">
+    <label for="name">Event Name:</label>
+    <input type="text" name="name" id="name">
+    <label for="date">Event Date:</label>
+    <input type="date" id="date" name="date">
+    <label for="location">Event Location:</label>
+    <input type="text" name="location" id="location">
+    <label for="guests">Number of Guests:</label>
+    <input type="number" name="guests" id="guests">
+    <label for="description">Event description:</label>
+    <textarea name="description" id="description" cols="30" rows="3"></textarea>
+    <label for="recurring">Recurring?</label>
+    <input type="checkbox" name="recurring" id="recurring">
+    <input type="submit" value="Add Event">
+</form>
+<h1>All Events</h1>
+<div class="event-container">
+{%for event in events%}
+    <div class="event">
+        <h2>{{event.name}} <h2> 
+        <h3>{{event.date}}</h3>
+        <h4>{{event.location}} </h4>
+        <h5>{{event.guests}}</h5>
+        <h5>{{event.description}}</h5>
+        
+        {% if event.recurring%}
+            <h5>Recurring</h5>
+            {% endif %}
 
-    </form>
-    <h1>All Events</h1>
-    <section>
-    {%for event in events%}
-        <div>
-            <h6>{{event.name}} <h6> 
-            <h6>{{event.date}}</h6>
-            <h6>
-                {{event.location}} 
-            </h6>
-            <h6>
-                {{event.guests}}
-            </h6>
-            <h6>
-                {{event.description}}
-            </h6>
-
-            <h6>
-            {% if event.recurring%}
-                Recurring
-            {% else %}
-                Not recurring
-                {% endif %}
-            </h6>
-        </div>
-        <p>
-    {% endfor %}
-    </section>
-    {%endblock%}
+        <form class="form-inline" action="/events/delete/{{ event.name }}" method="POST">
+            <input type="submit" value="Delete">
+            </form>
+    </div>
+{% endfor %}
+</div>
+{%endblock%}

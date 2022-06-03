@@ -1,18 +1,86 @@
 body {
-    background-color: cadetblue;
+    background-color: #e2be63;
+  }
+
+body>ul>li {
+    list-style: none;
 }
-li{
-    list-style: none;  
-}
-body>ul>li>a{
+  
+  .navLink li {
+      margin: 15px;
+  }
+  
+   a {
     color: white;
-    text-decoration: none;
-}
-section {
-    background-color: brown;
-}
-div {
-    background-color: blueviolet;
+  }
+  
+  .navLink {
+      display: inline;
+  }
+  
+  .form-inline {
     display: flex;
-    flex-flow: column;
-}
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  
+  /* Add some margins for each label */
+  .form-inline label {
+    margin: 5px 10px 5px 10px;
+  }
+  
+  /* Style the input fields */
+  .form-inline textbox input[type=text], input[type=number], input[type=date] {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  
+  .form-inline input[type=number] {
+    width: 6%;
+  }
+  
+  /* Style the submit button */
+  .form-inline input[type=submit] {
+    padding: 10px 20px;
+    background-color: #2951ae;
+    border: 1px solid #ddd;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  .form-inline input[type=submit]:hover {
+    background-color: #093b6d;
+  }
+  
+  .event-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .event {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    background-color: #7aa2e0;
+    padding: 10px;
+    margin:20px;
+  }
+  
+  .event p, i{
+    color: white;
+    list-style: none;
+    margin:3px;
+  }
+  
+  h2 {
+    color: rgb(10, 13, 244);
+  }
+  
+  h3, h4, h5 {
+    margin: 5px;
+    color:white;
+  }
